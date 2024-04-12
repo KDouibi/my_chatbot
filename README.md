@@ -51,14 +51,43 @@ CSS
 CREATING THE INTERFACE FOR THE INTERACTIONS WITH THE CHATBOT:
 -  check "index.html", read the comments in the code to get better understanding of each functionality.
 -  css.style file need to be improved as well, check the basic version tested in this tutorial.
-- now, to get text from our user in our app we need to use JQuery [2] which is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
+-   now, to get text from our user in our app we need to use JQuery [2] which is "a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript".
 
+- install JQuery to add to our application AJAX request: Go to “jquery.com” / “download” then go to “Using jQuery with a CDN”
+- to use the jQuery CDN, just reference the file in the script tag directly from the jQuery CDN domain. You can get the complete script tag, including Subresource Integrity attribute, by visiting https://releases.jquery.com and clicking on the version of the file that you want to use. Copy and paste that tag into your HTML file. Then, download the last version (uncompressed) and then copy the code of integration. 
+- ![image](https://github.com/KDouibi/my_chatbot/assets/38917244/0f6d5c91-60b5-47dd-81e1-d8969f9d4a12)
+- return to your project: index.html in the head section and paste the code you copied previously. Then, in the body of your html code add:
+  <img width="455" alt="image" src="https://github.com/KDouibi/my_chatbot/assets/38917244/88c25c46-3afe-4e5d-ae41-7deb61a89301">
+The result will be: 
+  ![image](https://github.com/KDouibi/my_chatbot/assets/38917244/504c60ab-f698-49d6-a51f-26dccd960fbb)
 
+PS: feel free to customize the style.css as you wish.
+SEND QUESTIONS TO CHATBOT:
 
-  
+Now we want to keep the all the history and send the messages to the backend without changing the frontend: 
+•	check more details in "index.html" / "getuserresponse" where we send the text to Python for treatment.
+
+ANSWERING THE QUESTIONS 
+The tools used for this step are:
+
+•	Chatbots can provide real-time customer support and are therefore a valuable asset in many industries. When you understand the basics of the ChatterBot library, you can build and train a self-learning chatbot with just a few lines of Python code. The ChatterBot library combines language corpora, text processing, machine learning algorithms, and data storage and retrieval to allow you to build flexible chatbots. You can build an industry-specific chatbot by training it with relevant data. Additionally, the chatbot will remember user responses and continue building its internal graph structure to improve the responses that it can give.
+
+•	YAML is a data serialization format designed for human readability and interaction with scripting languages. PyYAML is a YAML parser and emitter for Python. PyYAML features a complete YAML 1.1 parser, Unicode support, pickle support, capable extension API, and sensible error messages. PyYAML supports standard YAML tags and provides Python-specific tags that allow to represent an arbitrary Python object. PyYAML is applicable for a broad range of tasks from complex configuration files to object serialization and persistence.
+
+•	spaCy is an open-source software library for advanced natural language processing, written in the programming languages Python and Cython.[3][4] The library is published under the MIT license and its main developers are Matthew Honnibal and Ines Montani, the founders of the software company Explosion.
+
+- Check views.py for more details about the use of those librairies for this application, comments have been added to the code for better understanding.
+- to train the model on a dataset, you can use a conversations available in the toolbox (we can use customized data).
+    "Add from chatterbot.trainers import ChatterBotCorpusTrainer"
+- If we use the corpus we don’t need the default response because the corpus has already a default answers
+- We can see that now out corpus is trained about several topics:
+  ![image](https://github.com/KDouibi/my_chatbot/assets/38917244/cb93ef48-b35f-4316-a31d-de4742142659)
+- note that we can use another language by changing the language of the corpus
  
-
 
 References:
 - https://www.youtube.com/watch?v=5AmwVXIL-zU&list=PLg4ez-XXTcoMrk0qK1dDNbKywUhh3DdVr&index=2
-- [2]: https://jquery.com/
+- https://jquery.com/
+- https://realpython.com/build-a-chatbot-python-chatterbot/
+- https://chatterbot.readthedocs.io/en/stable/index.html
+- wikipidia/spacy
