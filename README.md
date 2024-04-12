@@ -14,8 +14,22 @@ First you need to :
 - 
 To create Django first app in your project:
 - in the terminal of your IDE tap: python manage.py startapp blog  (if python 3 is installed use python3)
+- Models.py is very important and it allows you to create for eg. new users to the app etc.
 
+To run your app in the browser: 
+- in the terminal, python manage.py runserver, it will give you an url where your app is launched, you copy the url and in a browser paste it. or just click on the link you get.
+- you will see the following view:
+  ![image](https://github.com/KDouibi/my_chatbot/assets/38917244/6ecbe4eb-059d-4e1d-bbee-d7a94626e2e1)
+ 
+To create a new url: 
+- open blog app and find urls.py if not existing: create it.
 
+from django.urls import path
+from . import views
+#create url
+urlpatterns = [
+    path('', views.index, name= 'index') #name of the url
+]
 
 
 References:
