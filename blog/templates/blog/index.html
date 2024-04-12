@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "blog/style.css"%}">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<h1> Chatbot app</h1>
+<div>
+    <div id="chatbot">
+        <!--the first message that the chatbot will show-->
+        <p class="botText"> <span>Hi there </span></p>
+    </div>
+
+    <div id="userInput">
+         <!--id to use this variable easily in the code,name= to use the code to interact with python, "placeholder" to give a user a hint about what he need to add -->
+        <input type="text" id="textInput" name="userMessage" placeholder="Type your message..."/>
+        <!-- #add button input/ #value is the text that the user will see on the button and the type is the type of input (text, buttonsubmit ..)-->
+        <input type="submit" value= "Send" id="buttonInput"/>
+
+
+    </div>
+</div>
+
+ <!--create script with functions to get user response -->
+<script>
+
+    function getUserResponse(){
+        var userText = $('#textInput').val();
+        <!--then insert the userText into the page to show to the user that their msg was sent-->
+        var userHTML = "<p class= 'userText'>User: <span> "+userText+" </span/></p>";
+        <!--then remove the userText from the text box after sent to keep it clean-->
+         $('#textInput').val("");
+         $ ('#chatbot').append(userHTML);
+
+         <!-- we send the text to Python from the user text-->
+        $.get('/blog/getResponse', {userMessage:userText}).done(function(data){
+
+            var returnedMessage = "<p class='botText'> Chatbot: <span>"+data+"</span/></p>";
+            $('#chatbot').append(returnedMessage);
+        })
+    }
+    <!--Listen to any click on the button send and activate the button and show the message in the box-->
+    $('#buttonInput').click(function(){
+        getUserResponse();
+    })
+
+</script>
+
+</body>
+
+</html>
